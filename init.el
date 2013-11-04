@@ -7,11 +7,29 @@
 ;;; site-list directory.
 ;; ~/.emacs.d/site-lisp
 
+;;; Font
+(set-face-attribute 'default nil :font "DejaVu Sans Mono-12")
+
 ;;; Evil.
 (add-to-list 'load-path "~/.emacs.d/site-lisp/evil")
 (require 'evil)
 (evil-mode 1)
 
 ;;; Color Theme
+;(add-to-list 'load-path "~/.emacs.d/site-lisp/color-theme")
+;(require 'color-theme)
+;(color-theme-initialize)
+;(color-theme-zenburn)
 (add-to-list 'load-path "~/.emacs.d/site-lisp/tomorrow-theme-master/GNU Emacs")
 (require 'tomorrow-night-eighties-theme)
+
+;;; nXhtml
+(load "~/.emacs.d/site-lisp/nxhtml/autostart")
+;; Workaround the annoying warnings:
+;; Warning (mumamo-per-buffer-local-vars):
+;; Already 'permanent-local t: buffer-file-name
+(when (and (equal emacs-major-version 24)
+	   (equal emacs-minor-version 2))
+  (eval-after-load "mumamo"
+    '(setq mumamo-per-buffer-local-vars
+	   (delq 'buffer-file-name mumamo-per-buffer-local-vars))))
