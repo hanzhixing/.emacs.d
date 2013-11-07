@@ -20,10 +20,6 @@
 (evil-mode 1)
 
 ;;; Color Theme
-;(add-to-list 'load-path "~/.emacs.d/site-lisp/color-theme")
-;(require 'color-theme)
-;(color-theme-initialize)
-;(color-theme-zenburn)
 (add-to-list 'load-path "~/.emacs.d/site-lisp/tomorrow-theme-master/GNU Emacs")
 (require 'tomorrow-night-eighties-theme)
 
