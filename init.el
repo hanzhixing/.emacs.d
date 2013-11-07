@@ -1,14 +1,18 @@
-;;; ELPA. Added, but I prefer download packages manually. Because by this way, it seems more clean.
-(require 'package)
-(add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/"))
-(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
-(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
-
-;;; site-list directory.
-;; ~/.emacs.d/site-lisp
+;;; Display
+(tool-bar-mode -1)
+(scroll-bar-mode -1)
 
 ;;; Font
 (set-face-attribute 'default nil :font "DejaVu Sans Mono-12")
+
+;;; Default load-path
+(add-to-list 'load-path "~/.emacs.d/site-lisp")
+
+;;; ELPA. Added, but I prefer download packages manually. Because by this way, it seems more clean.
+;(require 'package)
+;(add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/"))
+;(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
+;(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
 
 ;;; Evil.
 (add-to-list 'load-path "~/.emacs.d/site-lisp/evil")
@@ -24,7 +28,6 @@
 (require 'tomorrow-night-eighties-theme)
 
 ;;; nXhtml
-(load "~/.emacs.d/site-lisp/nxhtml/autostart")
 ;; Workaround the annoying warnings:
 ;; Warning (mumamo-per-buffer-local-vars):
 ;; Already 'permanent-local t: buffer-file-name
@@ -33,3 +36,7 @@
   (eval-after-load "mumamo"
     '(setq mumamo-per-buffer-local-vars
 	   (delq 'buffer-file-name mumamo-per-buffer-local-vars))))
+(load "~/.emacs.d/site-lisp/nxhtml/autostart")
+
+;;; Dired Plus
+(require 'dired+)
