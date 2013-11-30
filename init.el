@@ -2,8 +2,29 @@
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 
+;;; Encoding
+(set-language-environment 'utf-8)
+(setq locale-coding-system 'utf-8)
+(set-default-coding-systems 'utf-8)
+(set-terminal-coding-system 'utf-8)
+(set-selection-coding-system 'utf-8)
+(prefer-coding-system 'utf-8)
+
+;;; Line Feeding
+(set-buffer-file-coding-system 'utf-8-unix)
+
 ;;; Font
-(set-face-attribute 'default nil :font "DejaVu Sans Mono-12")
+(if (eq system-type 'gnu/linux)
+    (set-face-attribute 'default nil :font "DejaVu Sans Mono" :height 120))
+(if (eq system-type 'darwin)
+    (set-face-attribute 'default nil :font "Monaco" :height 130))
+
+;;; Tabs
+(add-hook 'after-change-major-mode-hook 
+	  '(lambda () 
+             (setq-default indent-tabs-mode nil)
+             (setq c-basic-indent 4)
+             (setq tab-width 4)))
 
 ;;; Default load-path
 (add-to-list 'load-path "~/.emacs.d/site-lisp")
@@ -20,7 +41,7 @@
 (evil-mode 1)
 
 ;;; Color Theme
-(add-to-list 'load-path "~/.emacs.d/site-lisp/tomorrow-theme-master/GNU Emacs")
+(add-to-list 'load-path "~/.emacs.d/site-lisp/tomorrow-theme/GNU Emacs")
 (require 'tomorrow-night-eighties-theme)
 
 ;;; nXhtml
@@ -32,7 +53,8 @@
   (eval-after-load "mumamo"
     '(setq mumamo-per-buffer-local-vars
 	   (delq 'buffer-file-name mumamo-per-buffer-local-vars))))
-(load "~/.emacs.d/site-lisp/nxhtml/autostart")
+(load "~/.emacs.d/site-lisp/nxhtml/autostart.el")
 
 ;;; Dired Plus
+(add-to-list 'load-path "~/.emacs.d/site-lisp/dired-plus")
 (require 'dired+)
