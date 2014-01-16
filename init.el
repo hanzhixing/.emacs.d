@@ -1,4 +1,7 @@
+;;; init.el --- init
 ;;; Display
+;;; Code:
+
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 
@@ -20,23 +23,24 @@
     (set-face-attribute 'default nil :font "Monaco" :height 130))
 
 ;;; Tabs
-(add-hook 'after-change-major-mode-hook 
-	  '(lambda () 
-             (setq-default indent-tabs-mode nil)
-             (setq c-basic-indent 4)
-             (setq tab-width 4)))
+;; Insert spaces instead of tabs. Changes by modes. (TAB = What?)
+(setq-default indent-tabs-mode nil)
 
 ;;; Default load-path
 (add-to-list 'load-path "~/.emacs.d/site-lisp")
 
 ;;; ELPA. Added, but I prefer download packages manually. Because by this way, it seems more clean.
-;(require 'package)
-;(add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/"))
-;(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
-;(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
+                                        ;(require 'package)
+                                        ;(add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/"))
+                                        ;(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
+                                        ;(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
 
 ;;; Evil.
 (add-to-list 'load-path "~/.emacs.d/site-lisp/evil")
+
+;;; Commentary:
+;; 
+
 (require 'evil)
 (evil-mode 1)
 
@@ -49,12 +53,16 @@
 ;; Warning (mumamo-per-buffer-local-vars):
 ;; Already 'permanent-local t: buffer-file-name
 (when (and (equal emacs-major-version 24)
-	   (equal emacs-minor-version 2))
+           (equal emacs-minor-version 2))
   (eval-after-load "mumamo"
     '(setq mumamo-per-buffer-local-vars
-	   (delq 'buffer-file-name mumamo-per-buffer-local-vars))))
+           (delq 'buffer-file-name mumamo-per-buffer-local-vars))))
 (load "~/.emacs.d/site-lisp/nxhtml/autostart.el")
 
 ;;; Dired Plus
 (add-to-list 'load-path "~/.emacs.d/site-lisp/dired-plus")
 (require 'dired+)
+
+(provide 'init)
+
+;;; init.el ends here
