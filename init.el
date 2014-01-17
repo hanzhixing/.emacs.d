@@ -25,45 +25,14 @@
 ;;; Tabs
 ;; Insert spaces instead of tabs. Changes by modes. (TAB = What?)
 (setq-default indent-tabs-mode nil)
-(highlight-tabs)
-(highlight-trailing-whitespace)
 
-;;; Default load-path
-(add-to-list 'load-path "~/.emacs.d/site-lisp")
+;;; Theme
+(load-theme 'wombat)
+(set-cursor-color "yellow")
 
 ;;; ELPA. Added, but I prefer download packages manually. Because by this way, it seems more clean.
-;(require 'package)
-;(add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/"))
-;(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
-;(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
-
-;;; Evil.
-(add-to-list 'load-path "~/.emacs.d/site-lisp/evil")
-
-;;; Commentary:
-;; 
-
-(require 'evil)
-(evil-mode 1)
-
-;;; Color Theme
-(add-to-list 'load-path "~/.emacs.d/site-lisp/tomorrow-theme/GNU Emacs")
-(require 'tomorrow-night-eighties-theme)
-
-;;; nXhtml
-;; Workaround the annoying warnings:
-;; Warning (mumamo-per-buffer-local-vars):
-;; Already 'permanent-local t: buffer-file-name
-(when (and (equal emacs-major-version 24)
-           (equal emacs-minor-version 2))
-  (eval-after-load "mumamo"
-                   '(setq mumamo-per-buffer-local-vars
-                          (delq 'buffer-file-name mumamo-per-buffer-local-vars))))
-(load "~/.emacs.d/site-lisp/nxhtml/autostart.el")
-
-;;; Dired Plus
-(add-to-list 'load-path "~/.emacs.d/site-lisp/dired-plus")
-(require 'dired+)
+(require 'package)
+(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
 
 (provide 'init)
 
