@@ -152,10 +152,13 @@
 ;;; theme
 (load-theme 'wombat)
 (set-cursor-color "green")
-;(set-face-attribute 'default nil :font "Monaco" :height 130))
-;(set-face-attribute 'default nil :font "DejaVu Sans Mono" :height 120))
+(set-face-attribute 'default nil :font "DejaVu Sans Mono" :height 120))
 (tool-bar-mode -1)
 (set-scroll-bar-mode nil)
+(setq scroll-step 1)
+(setq mouse-wheel-scroll-amount '(1 ((shift) . 1)))
+(setq mouse-wheel-progressive-speed nil)
+(setq mouse-wheel-follow-mouse 't)
 (setq use-file-dialog nil)
 (setq use-dialog-box nil)
 (setq inhibit-startup-screen t)
@@ -193,12 +196,7 @@
 
 
 ;;; Locales (setting them earlier in this file doesn't work in X)
-(setq utf-translate-cjk-mode t)
-(setq locale-coding-system 'utf-8)
-(set-language-environment 'utf-8)
+(set-language-environment 'UTF-8)
 (set-default-coding-systems 'utf-8)
-(set-terminal-coding-system 'utf-8)
-(set-selection-coding-system 'utf-8)
-(prefer-coding-system 'utf-8)
 
 ;;; init.el ends here
