@@ -152,7 +152,7 @@
 ;;; theme
 (load-theme 'wombat)
 (set-cursor-color "green")
-(add-to-list 'default-frame-alist '(font . "DejaVu Sans Mono-10"))
+(add-to-list 'default-frame-alist '(font . "DejaVu Sans Mono-14"))
 (tool-bar-mode -1)
 (set-scroll-bar-mode nil)
 (setq scroll-step 1)
