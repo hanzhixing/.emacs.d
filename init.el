@@ -152,7 +152,7 @@
 ;;; theme
 (load-theme 'wombat)
 (set-cursor-color "green")
-(set-face-attribute 'default nil :font "DejaVu Sans Mono" :height 120))
+(set-face-attribute 'default nil :font "DejaVu Sans Mono" :height 120)
 (tool-bar-mode -1)
 (set-scroll-bar-mode nil)
 (setq scroll-step 1)
