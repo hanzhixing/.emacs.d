@@ -152,7 +152,7 @@
 ;;; theme
 (load-theme 'wombat)
 (set-cursor-color "green")
-(set-face-attribute 'default nil :font "DejaVu Sans Mono" :height 120)
+(add-to-list 'default-frame-alist '(font . "DejaVu Sans Mono-10"))
 (tool-bar-mode -1)
 (set-scroll-bar-mode nil)
 (setq scroll-step 1)
@@ -196,7 +196,8 @@
 
 
 ;;; Locales (setting them earlier in this file doesn't work in X)
-(set-language-environment 'UTF-8)
-(set-default-coding-systems 'utf-8)
+;(prefer-coding-system 'utf-8)
+;(set-language-environment 'UTF-8)
+;(set-default-coding-systems 'utf-8)
 
 ;;; init.el ends here
