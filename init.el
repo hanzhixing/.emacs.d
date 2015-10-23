@@ -148,52 +148,67 @@
 
 
 
-
 ;;; theme
 (load-theme 'wombat)
 (set-cursor-color "green")
 (add-to-list 'default-frame-alist '(font . "DejaVu Sans Mono-14"))
+(setq visible-bell t)
+
+(global-prettify-symbols-mode)
+
+(cua-selection-mode t)
+
+;;; tool-bar
 (tool-bar-mode -1)
+
+;;; scroll-bar
 (set-scroll-bar-mode nil)
 (setq scroll-step 1)
+(setq scroll-conservatively 10000)
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 1)))
 (setq mouse-wheel-progressive-speed nil)
 (setq mouse-wheel-follow-mouse 't)
-(setq use-file-dialog nil)
-(setq use-dialog-box nil)
-(setq inhibit-startup-screen t)
-(setq inhibit-startup-echo-area-message t)
-(setq indicate-empty-lines t)
-(electric-pair-mode)
-(electric-indent-mode 1)
-(setq blink-cursor-interval 0.4)
-(setq bookmark-default-file (expand-file-name ".bookmarks.el" user-emacs-directory))
-(setq buffers-menu-max-size 30)
-(setq case-fold-search t)
-(setq column-number-mode t)
-(setq delete-selection-mode t)
-(setq ediff-split-window-function 'split-window-horizontally)
-(setq ediff-window-setup-function 'ediff-setup-windows-plain)
-(setq indent-tabs-mode nil)
-(setq make-backup-files nil)
-(setq mouse-yank-at-point t)
-(setq save-interprogram-paste-before-kill t)
+
 (setq scroll-preserve-screen-position 'always)
+
+;;; dialog
+(setq use-dialog-box nil)
+(setq use-file-dialog nil)
+
+(setq indicate-empty-lines t)
+
+;;; parens
+(show-paren-mode)
+(electric-pair-mode)
+(electric-indent-mode)
+
+;;; bookmarks
+(setq bookmark-default-file "~/.emacs.d/temp/bookmarks")
+
+;;; buffers-menu-size
+(setq buffers-menu-max-size nil)
+
+;;; cursor position in the mode line
+(setq line-number-mode t)
+(setq column-number-mode t)
+
+;;; TAB
+(setq indent-tabs-mode nil)
+
+;;; no-backup
+(setq make-backup-files nil)
+
+(setq mouse-yank-at-point t)
+
+(setq save-interprogram-paste-before-kill t)
+
 (setq set-mark-command-repeat-pop t)
+
 (setq show-trailing-whitespace t)
-(setq tooltip-delay 1.5)
-(setq truncate-lines nil)
-(setq truncate-partial-width-windows nil)
-(setq visible-bell t)
-(setq show-paren-mode 1)
+
+;;; refresh buffer when the file is changed outside
 (global-auto-revert-mode)
 (setq global-auto-revert-non-file-buffers t)
-(setq auto-revert-verbose nil)
-(transient-mark-mode t)
-(global-prettify-symbols-mode)
-(cua-selection-mode t)
-
-
 
 ;;; Locales (setting them earlier in this file doesn't work in X)
 ;(prefer-coding-system 'utf-8)
